@@ -25,16 +25,16 @@ int handle_write_char(char c, char buffer[], int flags, int width, int precision
 	buffer[i++] = c;
 	buffer[i] = '\0';
 
-	if (width > 1)
+	if (width > 1) /*Checks if the specified width is greater than 1*/
 	{
-		buffer[BUFF_SIZE - 1] = '\0';
+		buffer[BUFF_SIZE - 1] = '\0'; /*The null terminator at the end of the buffer ensures that the buffer can be treated as a string later on.*/
 		for (i = 0; i < width - 1; i++)
 			buffer[BUFF_SIZE - i - 2] = padd;
 
-		if (flags & F_MINUS)
+		if (flags & F_MINUS) /*If the F_MINUS flag is present, it writes the first character in buffer followed by a piece of the buffer containing the padding characters.*/
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
-		else
+		else /* If the F_MINUS flag is not present, it writes the piece of the buffer containing the padding characters followed by the first character separately. */
 			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
 					write(1, &buffer[0], 1));
 	}
