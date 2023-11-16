@@ -58,8 +58,8 @@ int _printf(const char *format, ...)
  */
 void print_buffer(char buffer[], int *buff_ind)
 {
-	if (*buff_ind > 0)
-	write(1, &buffer[0], *buff_ind);
+	if (*buff_ind > 0) /* checks if the value pointed to by "buff_ind" is greater than 0. */
+	write(1, &buffer[0], *buff_ind); /* uses the write function to output the content of the buffer array. */
 
-	*buff_ind = 0;
+	*buff_ind = 0; /* sets the value pointed to by buff_ind to 0 after writing the content of the buffer */
 }
