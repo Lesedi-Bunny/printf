@@ -30,7 +30,7 @@ int print_unsigned(va_list types, char buffer[], int flags, int width, int preci
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size)); /*returns the result of a function write_unsgnd passing various parameters including i, buffer, and other flags presumably for further processing or output*/
 }
 
 /**
