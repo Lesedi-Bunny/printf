@@ -36,11 +36,11 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[], int fla
 		else if (width)
 		{
 			--(*ind);
-			while (fmt[*ind] != ' ' && fmt[*ind] != '%')
+			while (fmt[*ind] != ' ' && fmt[*ind] != '%') /*continues moving backward until it encounters either a space character ' ' or a '%' character in the fmt string pointed to by the current index *ind*/
+				--(*ind); /*If the character at fmt[*ind] is neither a space nor a '%', it keeps moving backward*/
+			if (fmt[*ind] == ' ') /*If the character found at fmt[*ind] is a space character ' ', it decrements *ind again*/
 				--(*ind);
-			if (fmt[*ind] == ' ')
-				--(*ind);
-			return (1);
+			return (1); /*the function returns 1*/
 		}
 		unknow_len += write(1, &fmt[*ind], 1);
 		return (unknow_len);
