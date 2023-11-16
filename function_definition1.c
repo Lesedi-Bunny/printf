@@ -166,14 +166,14 @@ int print_binary(va_list types, char buffer[], int flags, int width, int precisi
 	}
 	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
-		sum += a[i];
-		if (sum || i == 31)
+		sum += a[i]; /*adds the value of the current element a[i] to the running sum*/
+		if (sum || i == 31) /*If sum is non-zero or if it's the last iteration (i == 31), it enters the condition block*/
 		{
-			char z = '0' + a[i];
+			char z = '0' + a[i]; /*assigns the value of the current element a[i] to a new variable z by converting it to its ASCII equivalent. this effectively converts the integer value to its corresponding character by adding it to the ASCII value of '0'*/
 
-			write(1, &z, 1);
-			count++;
+			write(1, &z, 1); /*it writes the character z to the standard output using the write function*/
+			count++; /*then  increments the count variable to track the number of characters written*/
 		}
 	}
-	return (count);
+	return (count); /*the function returns the value of count, which represents the count of characters written to the output*/
 }
