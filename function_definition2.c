@@ -119,14 +119,14 @@ int print_reverse(va_list types, char buffer[], int flags, int width, int precis
 	for (i = 0; str[i]; i++)
 		;
 
-	for (i = i - 1; i >= 0; i--)
+	for (i = i - 1; i >= 0; i--) /*the loop runs as long as i is greater than or equal to 0*/
 	{
-		char a = str[i];
+		char a = str[i]; /*assigns the character at index i of the string str to a new variable a*/
 
-		write(1, &a, 1);
-		count++;
+		write(1, &a, 1); /*writes the character a to the standard output using the write function*/
+		count++; /*increments the count variable to keep track of the number of characters written*/
 	}
-	return (count);
+	return (count); /*the total count of characters printed during the iteration through the string in reverse order - once the loop completes*/
 }
 
 /**
